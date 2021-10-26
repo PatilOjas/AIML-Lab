@@ -76,8 +76,12 @@ def printer():
 
    
 endFlag = False
+
+printer()
+
 while True:
     humanLocation = list(map(int, input("Enter your next move location: ").strip().split()))
+    humanLocation = [humanLocation[0] - 1, humanLocation[1] - 1]
     
     if myBoard[humanLocation[0]][humanLocation[1]] != '_':
         print("Watch oout!!\nIt's not an empty cell")
@@ -98,6 +102,7 @@ while True:
     elif gameStatus == "Draw":
         print("Match Draw!!")
         endFlag = True
+        break
     
     if not endFlag: playAI()
     
